@@ -1,0 +1,51 @@
+<header class="header-home">
+  <ul class="main-header">
+    <li class="logo-header">CHUỖI CUNG ỨNG NÔNG SẢN</li>
+    <li class="btn-header">
+      <button class="login-user" [hidden]="checkLog">My Cart</button>
+      <button
+        class="login-supplier"
+        (click)="clickLogin()"
+        [hidden]="!checkLog"
+      >
+        Login
+      </button>
+      <button
+        class="login-supplier"
+        [hidden]="checkLog"
+        (click)="clickMyStore()"
+      >
+        My Store
+      </button>
+      <button
+        class="login-supplier"
+        [hidden]="checkLog"
+        (click)="clickLogout()"
+      >
+        Logout
+      </button>
+    </li>
+  </ul>
+</header>
+<main class="main-home">
+  <div class="d-flex justify-content-between">
+    <h3>Danh sách sản phẩm</h3>
+    <div class="input-group mb-3 search-size">
+      <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" />
+      <span class="input-group-text">Search</span>
+    </div>
+  </div>
+  <div class="product-item d-flex" *ngFor="let product of listProducts">
+    <img [src]="product.linkImg" />
+    <div class="content-item">
+      <h4>{{ product.name }}</h4>
+      <h6>Trang trại: {{ product.supplierName }}</h6>
+      <p>Số lượng: {{ product.quantity }}</p>
+      <p class="price-color">
+        Giá : {{ product.priceSale | number : "1.0-0" }} vnđ /
+        {{ product.unit }}
+      </p>
+    </div>
+    <button (click)="onClickCheckOut(product.id)">Check Out</button>
+  </div>
+</main>

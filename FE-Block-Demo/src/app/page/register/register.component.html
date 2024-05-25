@@ -1,0 +1,60 @@
+<div class="container-login">
+  <div class="main-login rounded-3">
+    <h1 class="title">REGISTER</h1>
+    <div>
+      <!-- your email -->
+      <div class="col-auto">
+        <label for="exampleInputEmail1" class="form-label">Your Email</label>
+        <div class="input-group">
+          <div class="input-group-text">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="example@gmail.com"
+            [(ngModel)]="emailInput"
+          />
+        </div>
+      </div>
+
+      <!-- your pass -->
+      <div class="col-auto mt-4">
+        <label for="exampleInputEmail1" class="form-label">Your Password</label>
+        <div class="input-group">
+          <div class="input-group-text">
+            <fa-icon [icon]="faLock"></fa-icon>
+          </div>
+
+          <input
+            type="password"
+            class="form-control"
+            placeholder="password"
+            [(ngModel)]="passwordInput"
+          />
+        </div>
+      </div>
+
+      <!-- your pass -->
+      <div class="col-auto mt-4 mb-3">
+        <label for="exampleInputEmail1" class="form-label">Your Role</label>
+        <div class="input-group">
+          <div class="input-group-text">
+            <fa-icon [icon]="faUser"></fa-icon>
+          </div>
+          <select class="form-select" [(ngModel)]="selectedValue">
+            <option selected value="user">User</option>
+            <option selected value="provider">Provider</option>
+          </select>
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary customer-btn-login mt-4 bgc-base"
+        (click)="onClickLogin()"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+</div>

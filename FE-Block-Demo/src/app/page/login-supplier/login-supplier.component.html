@@ -1,0 +1,53 @@
+<div class="container-login">
+  <div class="main-login rounded-3">
+    <h1 class="title">SIGN IN</h1>
+    <div>
+      <!-- your email -->
+      <div class="col-auto">
+        <label for="exampleInputEmail1" class="form-label">Your Email</label>
+        <div class="input-group">
+          <div class="input-group-text">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="example@gmail.com"
+            [(ngModel)]="emailInput"
+          />
+        </div>
+      </div>
+
+      <!-- your pass -->
+      <div class="col-auto mt-4">
+        <label for="exampleInputEmail1" class="form-label">Your Password</label>
+        <div class="input-group">
+          <div class="input-group-text">
+            <fa-icon [icon]="faLock"></fa-icon>
+          </div>
+
+          <input
+            type="password"
+            class="form-control"
+            placeholder="password"
+            [(ngModel)]="passwordInput"
+          />
+        </div>
+      </div>
+
+      <button
+        class="btn btn-primary customer-btn-login mt-4 bgc-base"
+        (click)="onClickLogin()"
+      >
+        Login
+      </button>
+
+      <div class="registered mt-4">
+        <p>
+          Not registered?
+          <a class="link color-base cursor"> Create account </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

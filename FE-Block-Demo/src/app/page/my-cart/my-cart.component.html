@@ -1,0 +1,67 @@
+<header class="header-home">
+  <ul class="main-header">
+    <li class="logo-header">CHUỖI CUNG ỨNG NÔNG SẢN</li>
+    <li class="btn-header">
+      <button class="login-user" [hidden]="checkLog">My Cart</button>
+      <button
+        class="login-supplier"
+        (click)="clickLogin()"
+        [hidden]="!checkLog"
+      >
+        Login
+      </button>
+      <button
+        class="login-supplier"
+        [hidden]="checkLog"
+        (click)="clickMyStore()"
+      >
+        My Store
+      </button>
+      <button
+        class="login-supplier"
+        [hidden]="checkLog"
+        (click)="clickLogout()"
+      >
+        Logout
+      </button>
+    </li>
+  </ul>
+</header>
+<main class="main-home">
+  <div class="d-flex justify-content-between">
+    <h3>Danh sách Order</h3>
+    <div class="input-group mb-3 search-size">
+      <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" />
+      <span class="input-group-text">Search</span>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Ảnh minh họa</th>
+        <th scope="col">Tên sản phẩm</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Tổng tiền</th>
+        <th scope="col">Trạng Thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of listOrders">
+        <th scope="row">
+          <img class="img-size" [src]="order.linkImg" />
+        </th>
+        <td>{{ order.productName }}</td>
+
+        <td>
+          {{ order.productPrice | number : "1.0-0" }} vnđ /{{ order.unit }}
+        </td>
+        <td>{{ order.quantity }}</td>
+        <td>
+          {{ order.productPrice * order.quantity | number : "1.0-0" }} vnđ
+        </td>
+        <td>{{ order.isStatus ? "Approved" : "Waiting" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</main>

@@ -1,0 +1,47 @@
+<header class="header-home">
+  <ul class="main-header">
+    <li class="logo-header">CHUỖI CUNG ỨNG NÔNG SẢN</li>
+    <li class="btn-header">
+      <button class="login-user">My Cart</button>
+      <button class="login-supplier">Login</button>
+    </li>
+  </ul>
+</header>
+<main class="detail-product">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Ảnh minh họa</th>
+        <th scope="col">Tên sản phẩm</th>
+        <th scope="col">Nông trại</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Tồn kho</th>
+        <th scope="col">Số lượng mua</th>
+        <th scope="col">Tổng tiền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">
+          <img class="img-size" [src]="product.linkImg" />
+        </th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.supplierName }}</td>
+        <td>
+          {{ product.priceSale | number : "1.0-0" }} vnđ /{{ product.unit }}
+        </td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="quantityInput"
+            [max]="product.quantity"
+            [min]="1"
+          />
+        </td>
+        <td>{{ product.priceSale * quantityInput | number : "1.0-0" }} vnđ</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="add-to-cart">Order</button>
+</main>

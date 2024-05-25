@@ -1,0 +1,128 @@
+<header class="header-home">
+  <ul class="main-header" (click)="onClickHome()">
+    <li class="logo-header">CHUỖI CUNG ỨNG NÔNG SẢN</li>
+    <li class="btn-header"></li>
+  </ul>
+</header>
+<main class="detail-product">
+  <button class="add-to-cart" (click)="onClickCreate()">Add Product</button>
+  <!-- create -->
+
+  <div class="modal-product" [hidden]="checkCreate">
+    <div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Link ảnh minh họa</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Tên sản phẩm</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Giá sản phẩm</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Số lượng</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Đơn vị</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Trạng thái</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-4 mb-4">
+          <button class="add-to-cart" [hidden]="checkCreate">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- create -->
+
+  <!-- edit -->
+  <div class="modal-product" [hidden]="checkEdit">
+    <div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Link ảnh minh họa</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Tên sản phẩm</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Giá sản phẩm</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Số lượng</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Đơn vị</label>
+          <input type="text" class="form-control" />
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Trạng thái</label>
+          <select id="inputState" class="form-select">
+            <option selected>Choose...</option>
+            <option>...</option>
+          </select>
+        </div>
+        <div class="col-4 mb-4">
+          <button class="add-to-cart" [hidden]="checkEdit">Cancel</button>
+          <button class="add-to-cart ms-5" [hidden]="checkEdit">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- edit -->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Ảnh minh họa</th>
+        <th scope="col">Tên sản phẩm</th>
+        <th scope="col">Giá</th>
+        <th scope="col">Đơn vị</th>
+        <th scope="col">Số lượng</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of listProducts">
+        <td scope="row">
+          <img class="img-size" [src]="product.linkImg" />
+        </td>
+        <td>
+          {{ product.name }}
+        </td>
+        <td>
+          {{ product.priceSale | number : "1.0-0" }}
+        </td>
+        <td>
+          {{ product.unit }}
+        </td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          {{ product.isStatus ? "Còn bán" : "Ngưng bán" }}
+          <!-- <input type="text" class="input-c" /> -->
+        </td>
+        <td>
+          <button class="edit" (click)="onClickEdit()">Edit</button>
+          <button class="del">Del</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
